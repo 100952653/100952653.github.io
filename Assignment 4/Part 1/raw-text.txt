@@ -15,25 +15,31 @@ function randomValueFromArray(array){
   return array[random];
 }
 
-rawled away
-
-3. EVENT LISTENER AND PARTIAL FUNCTION DEFINITION
-
 randomize.addEventListener('click', result);
 
 function result() {
+    let newstory = storyText;
+    const xItem = randomValueFromArray(insertx);
+    const yItem = randomValueFromArray(inserty);
+    const zItem = randomValueFromArray(insertz);
+
+    newstory = newstory.replaceAll(':insertx:',xItem);
+    newstory = newstory.replaceAll(':inserty:',yItem);
+    newstory = newstory.replaceAll(':insertz',zItem);
+
 
   if(customName.value !== '') {
     const name = customName.value;
-
-  }
+    newstory = newstory.replaceAll('Bob',name);
+}
 
   if(document.getElementById("uk").checked) {
-    const weight = Math.round(300);
-    const temperature =  Math.round(94);
-
-  }
-
-  story.textContent = ;
+    const weight = ${Math.round(300*0.0714286)} stone;
+    const temperature = ${Math.round((94-32)*5/9)} centigrade;
+    newstory= newstory.replaceAll('94 fahrenheit',temperature);
+    newstory= newstory.replaceAll('300 pounds',weight);
+ }
+ 
+  story.textContent = newstory;
   story.style.visibility = 'visible';
 }
